@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Manager</h1>
+            <button id="add-btn" class="btn-primary"><i class="fas fa-plus"></i> Add Contact</button>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search contacts...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div id="contacts-container">
+            <!-- Contacts will be displayed here -->
+            <div class="empty-state" id="empty-state">
+                <i class="fas fa-address-book"></i>
+                <p>No contacts found. Add a new contact to get started!</p>
+            </div>
+        </div>
+
+        <!-- Add/Edit Contact Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-title">Add New Contact</h2>
+                <form id="contact-form">
+                    <input type="hidden" id="contact-id">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="family">Family</option>
+                            <option value="friend">Friend</option>
+                            <option value="work">Work</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="save-btn">Save</button>
+                        <button type="button" class="btn-secondary" id="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div id="delete-modal" class="modal">
+            <div class="modal-content">
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you want to delete this contact?</p>
+                <div class="form-actions">
+                    <button class="btn-danger" id="confirm-delete-btn">Delete</button>
+                    <button class="btn-secondary" id="cancel-delete-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
